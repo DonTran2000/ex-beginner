@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Items and Cart</title>
+    <style>
+        .main {
+            display: flex;
+            gap: 50px;
+            margin: 20px;
+        }
+
+        .items, .cart {
+            font-weight: bold;
+            display: block;
+            margin-bottom: 15px;
+        }
+
+        .item-row {
+            margin-bottom: 10px;
+        }
+
+        .center {
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="main">
+
+    <form th:action="@{/shop/inCart}" method="post">
+        <label class="items" for="items">商品一覧</label>
+
+        <div id="items">
+            <div th:each="item, status : ${application.itemList}" class="item-row">
+                <span th:text="${item.name}" class="center">手帳ノート</span>
+                <span th:text="${item.price}" class="center">1,000</span>円
+                <button name="index" th:value="${status.index}" class="center">カートへ</button>
+            </div>
+        </div>
+    </form>
+
+    <hr>
+
+    <form th:action="@{/shop/delete}" method="post">
+        <label class="cart" for="cart">ショッピングカート</label>
+
+        <div id="cart">
+            <div th:each="entry, status : ${groupedCart}" class="item-row">
+                <span th:text="${entry.key}">手帳ノート</span>
+                (x<span th:text="${entry.value.quantity}">1</span>)
+                <span th:text="${entry.value.price}">1,000</span>円
+                <button name="itemId" th:value="${status.index}">削除</button>
+            </div>
+        </div>
+
+        <br>
+        <label for="totalPrice" style="font-weight: bold;">合計</label>
+        <br>
+        <span id="totalPrice" th:text="${totalPrice}">0</span>円
+    </form>
+</div>
+</body>
+</html>

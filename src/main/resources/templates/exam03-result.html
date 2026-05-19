@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam03 Result</title>
+</head>
+<body>
+<h1>合計金額</h1>
+
+
+税抜き価格<br>
+<span th:text="${#numbers.formatInteger(product.priceTaxExcluded, 1, 'COMMA')}"></span>円
+<br>
+税込み価格<br>
+<span th:text="${#numbers.formatInteger(product.priceTaxIncluded,1,'COMMA')}"></span>円
+
+</body>
+</html>

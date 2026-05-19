@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam03</title>
+</head>
+<body>
+<form action="exam03-result.html" th:object="${productForm}" th:action="@{/exam03/exam03Result}" method="post">
+    <label for="item1">
+        商品1:
+        <input type="text" name="item1" id="item1" th:field="*{item1}"/>
+    </label>
+    <br>
+    <label for="item2">
+        商品2:
+        <input type="text" name="item2" id="item2" th:field="*{item2}"/>
+    </label>
+    <br>
+    <label for="item3">
+        商品3:
+        <input type="text" name="item3" id="item3" th:field="*{item3}"/>
+    </label>
+    <br>
+    <button>購入</button>
+</form>
+</body>
+</html>

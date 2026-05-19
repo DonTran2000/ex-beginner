@@ -7,8 +7,8 @@
 <body>
 <h1>足し算結果画面</h1>
 <form action="exam02-result2.html" th:action="@{/exam02/exam02Result2}" method="post">
-    <span th:text="${calculator.number1}"></span>+<span th:text="${calculator.number2}"></span>=<span
-        th:text="${calculator.result}"></span>
+    <span th:text="${calculatorForm.number1}"></span>+<span th:text="${calculatorForm.number2}"></span>=<span
+        th:text="${calculatorForm.result}"></span>
     <br>
     <button>次へ</button>
 </form>
