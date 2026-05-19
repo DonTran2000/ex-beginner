@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Exam02</title>
+</head>
+<body>
+<form action="exam02-result.html" th:object="${calculator}" th:action="@{/exam02/exam02Result}" method="post">
+    数字を入れてください。<br>
+    <input type="text" name="number1" th:field="*{number1}"> + <input type="text" name="number2" th:field="*{number2}">=
+    <br>
+    <button>足し算をする</button>
+</form>
+
+</body>
+</html>
